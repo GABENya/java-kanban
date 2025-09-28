@@ -15,6 +15,14 @@ public class Task {
         return id;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
     public Status getStatus() {
         return status;
     }
@@ -23,13 +31,19 @@ public class Task {
         this.status = status;
     }
 
+    // Переопределение equals и hashCode для проверки по id
     @Override
-    public String toString() {
-        return "Task{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", status=" + status +
-                '}';
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Task task = (Task) o;
+
+        return id == task.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return id;
     }
 }
