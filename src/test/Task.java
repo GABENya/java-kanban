@@ -1,3 +1,7 @@
+package test;
+
+import tasks.Status;  // Добавлен импорт для Status из пакета tasks
+
 public class Task {
     protected int id;
     protected String title;
@@ -13,6 +17,10 @@ public class Task {
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {  // Добавлен публичный setter для id
+        this.id = id;
     }
 
     public String getTitle() {

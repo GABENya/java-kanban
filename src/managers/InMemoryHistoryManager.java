@@ -1,4 +1,7 @@
+package managers;
+
 import java.util.*;
+import test.Task;  // Добавлен импорт для Task из пакета test
 
 public class InMemoryHistoryManager implements HistoryManager {
     public static final int MAX_HISTORY_SIZE = 10;

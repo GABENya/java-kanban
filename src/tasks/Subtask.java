@@ -1,3 +1,7 @@
+package tasks;
+
+import test.Task;  // Импорт уже был, оставлен как есть
+
 public class Subtask extends Task {
     private int epicId;
 
@@ -16,7 +20,7 @@ public class Subtask extends Task {
 
     @Override
     public String toString() {
-        return "Subtask{" +
+        return "tasks.Subtask{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +

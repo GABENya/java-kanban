@@ -1,4 +1,10 @@
+package managers;
+
 import java.util.*;
+import test.Task;  // Добавлен импорт для Task из пакета test
+import tasks.Epic;  // Добавлен импорт для Epic из пакета tasks
+import tasks.Status;  // Добавлен импорт для Status из пакета tasks
+import tasks.Subtask;  // Добавлен импорт для Subtask из пакета tasks
 
 public class InMemoryTaskManager implements TaskManager {
     private final Map<Integer, Task> tasks = new HashMap<>();
@@ -13,7 +19,7 @@ public class InMemoryTaskManager implements TaskManager {
 
     @Override
     public int addTask(Task task) {
-        task.id = currentId++;
+        task.setId(currentId++);  // Используем setter вместо прямого присваивания
         tasks.put(task.getId(), task);
         return task.getId();
     }
@@ -48,7 +54,7 @@ public class InMemoryTaskManager implements TaskManager {
 
     @Override
     public int addEpic(Epic epic) {
-        epic.id = currentId++;
+        epic.setId(currentId++);  // Используем setter вместо прямого присваивания
         epics.put(epic.getId(), epic);
         return epic.getId();
     }
@@ -84,7 +90,7 @@ public class InMemoryTaskManager implements TaskManager {
         if (!epics.containsKey(subtask.getEpicId())) {
             throw new IllegalArgumentException("Эпик с ID " + subtask.getEpicId() + " не найден");
         }
-        subtask.id = currentId++;
+        subtask.setId(currentId++);  // Используем setter вместо прямого присваивания
         subtasks.put(subtask.getId(), subtask);
         epics.get(subtask.getEpicId()).addSubtaskId(subtask.getId());
         updateEpicStatus(subtask.getEpicId());

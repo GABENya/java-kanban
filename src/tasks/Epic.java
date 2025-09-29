@@ -1,5 +1,8 @@
+package tasks;
+
 import java.util.ArrayList;
 import java.util.List;
+import test.Task;  // Добавлен импорт для Task из пакета test
 
 public class Epic extends Task {
     private List<Integer> subtaskIds;
@@ -27,7 +30,7 @@ public class Epic extends Task {
 
     @Override
     public String toString() {
-        return "Epic{" +
+        return "tasks.Epic{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
